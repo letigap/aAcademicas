@@ -2,7 +2,7 @@
  include_once("include/header.php");
  include_once("include/dbConexion.php");
 
- $sql = 'SELECT id_evento, evento_nombre, evento_imagen, evento_fecha FROM evento ORDER BY evento_fecha ASC LIMIT 3 ';
+ $sql = 'SELECT id_evento, evento_nombre, evento_imagen, evento_fecha_inicio FROM evento ORDER BY evento_fecha_inicio DESC LIMIT 3 ';
 $eventoActual = getDatos($sql);
 
 ?>
@@ -35,7 +35,7 @@ $eventoActual = getDatos($sql);
             <div class="mask">  
             <!-- <h3>Evento Reciente</h3>   -->
             <h2><?=$eventoA['evento_nombre']?></h2>
-            <p><?=$eventoA['evento_fecha']?></p>  
+            <p><?=$eventoA['evento_fecha_inicio']?></p>  
             <!--   <a href="#" class="info">Leer más</a> -->  
             </div>
         </div>  
@@ -50,7 +50,7 @@ $eventoActual = getDatos($sql);
         <div class="col-sm-12 col-md-12 col-lg-12">
         <!-- 1:1 aspect ratio -->
         <div class="embed-responsive embed-responsive-1by1">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_5fTjM6_oZc"></iframe>
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_5fTjM6_oZc" title="Youtube video actividades"></iframe>
         </div>
     </div>
     </div>

@@ -1,4 +1,13 @@
-<?php 
+<?php
+   //Inicio la session
+   session_start();
+
+   // //COMPRUEBA QUE EL USUARIO ESTA AUTENTIFICADO
+   if (!$_SESSION['email']) {
+           //si no existe, envío a la página de autentificación
+           header("Location: login.php");
+           exit();
+   } 
 require_once ("include/header.php");
 include_once("include/dbConexion.php");
 include_once("include/validar_registro.php");
@@ -10,10 +19,10 @@ include_once("include/validar_registro.php");
           <span style="color: #ed1b24">
             <?= $mensaje ?>
           </span>
-      	<div class=" col-md-4 col-lg-3">
+      	<div class=" col-md-4 col-lg-4">
             <div class="info">
               <div class="red-inst">
-                <li class="list-inline"><i class="fa fa-map-marker"></i></li>
+                <li class="list-inline"><i class="fa fa-map-marker"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9020.449601909662!2d-99.18742347636712!3d19.31075889845436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xecbd2e7c9f00b20!2sPUEE%20UNAM!5e0!3m2!1ses!2smx!4v1623934452162!5m2!1ses!2smx" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe></i></li>
                 <p> Circuito Mario de la Cueva sin número,<br> Zona Cultural, Ciudad Universitaria,<br> México, D.F. C.P. 04510</p>
               </div>
 
@@ -28,7 +37,7 @@ include_once("include/validar_registro.php");
               </div>
             </div>
     	</div>
-		<div class="col-md 8 col-lg-9">
+		<div class="col-md 8 col-lg-8">
           <h3>Registro</h3>
 		<form name ="formularioUsuario" method="POST" action="registro.php" onsubmit="return comprobarDatosFormulario()">
 		<label for="nombre" class="label_formulario">Nombre</label>

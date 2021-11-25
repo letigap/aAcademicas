@@ -1,7 +1,7 @@
 <?php
 
 $datos = $_POST;
- // print_r($datos);
+  print_r($datos);
 
 //SECCION DEL CODIGO PARA PROCESAR EL FORMULARIO
 if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
@@ -13,6 +13,16 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
     $participante_email = trim($_POST['participante_email']);
     $participante_cargo_inst = trim($_POST['participante_cargo_inst']);
     
+    echo "<script>
+        sessionStorage.setItem('id_rol','".$id_rol."'); 
+        sessionStorage.setItem('participante_nombre','".$participante_nombre."');
+        sessionStorage.setItem('participante_apellidop','".$participante_apellidop."');
+        sessionStorage.setItem('participante_apellidom','".$participante_apellidom."');
+        sessionStorage.setItem('participante_email','".$participante_email."');
+        sessionStorage.setItem('participante_cargo_inst','".$participante_cargo_inst."'); 
+                                   
+     </script>";
+
     
     $errores = [];
    // var_dump(vacio($id_tevento));
@@ -23,7 +33,7 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
 
     if( vacio($participante_nombre) ) {
         $errores['participante_nombre']['obligatorio'] = "El Nombre es obligatorio";
-    } elseif(!filter_var($participante_nombre, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-z0-9áéíóúAÉÍÓÚÑñ'-.\s ]+$/i"]])) {
+    } elseif(!filter_var($participante_nombre, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-záéíóúÁÉÍÓÚÑñäëüÄÖ'-.\s ]+$/i"]])) {
        //evento_nombre puede tener letras . ' (espacios) - 
        $errores['participante_nombre'][] = "El nombre de participante_nombre no es válido";
     }elseif (strlen($participante_nombre) > 80) {
@@ -31,30 +41,28 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
     }
     if( vacio($participante_apellidop) ) {
         $errores['participante_apellidop']['obligatorio'] = "El Apellido Paterno es obligatorio";
-    } elseif(!filter_var($participante_apellidop, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-zA-ZáéíóúAÉÍÓÚÑñ'-.\s ]+$/i"]])) {
+    } elseif(!filter_var($participante_apellidop, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-zA-ZáéíóúÁÉÍÓÚÑñäëüÄÖ'-.\s ]+$/i"]])) {
        //evento_nombre puede tener letras . ' (espacios) - 
        $errores['participante_apellidop'][] = "El Apellido de participante no es válido";
     }elseif (strlen($participante_apellidop) > 80) {
         $errores['participante_apellidop'][] = "El Apellido de participante puede tener máximo 80 caracteres";
     }
 
-    if(!filter_var($participante_apellidom, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-zA-ZáéíóúAÉÍÓÚÑñ'-.\s ]+$/i"]])) {
+    if( !vacio($participante_apellidom) &&(!filter_var($participante_apellidom, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-zA-ZáéíóúÁÉÍÓÚÑñäëüÄÖ'-.\s ]+$/i"]]))) {
        //evento_nombre puede tener letras . ' (espacios) - 
-       $errores['participante_apellidom'][] = "El Apellido de participante no es válido";
+       $errores['participante_apellidom'][] = "El Apellido materno de participante no es válido";
     }elseif (strlen($participante_apellidom) > 80) {
         $errores['participante_apellidom'][] = "El Apellido de participante puede tener máximo 80 caracteres";
     }
 
 
-    if(!filter_var($participante_email, FILTER_VALIDATE_EMAIL)) {
+    if( !vacio($participante_email) && (!filter_var($participante_email, FILTER_VALIDATE_EMAIL))) {
         $errores['participante_email']['formato'] = "El email no es válido";
     }elseif (strlen($participante_email) > 100) {
         $errores['participante_email'][] = "La dirección de correo puede tener máximo 100 caracteres";
     }
 
-    if( vacio($participante_cargo_inst) ) {
-        $errores['participante_cargo_inst']['obligatorio'] = "El cargo es obligatorio";
-    } elseif(!filter_var($participante_cargo_inst, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-zA-ZáéíóúAÉ'-.\s ]+$/i"]])) {
+    if( !vacio($participante_cargo_inst) && (!filter_var($participante_cargo_inst, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^[a-zA-ZáéíóúAÉ'-.\s ]+$/i"]]) )) {
        //evento_nombre puede tener letras . ' (espacios) - 
        $errores['participante_cargo_inst'][] = "El cargo de participante_nombre no es válido";
     }elseif (strlen($participante_cargo_inst) > 100) {

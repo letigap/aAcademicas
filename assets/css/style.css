@@ -17,11 +17,11 @@ p {
 .nav-item a {
   transition: 0.5s;
   color: #fff !important;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 
 }
 .nav-item a:hover {
-  color: #3bf9f9!important;
+  color: #09AD8B!important;
 
 }
 a {

@@ -125,10 +125,19 @@ $roles = getDatos($sql);
 </div>
 <div class="mb-4">
 <button name="agregar" value="agregar" type="submit" class="btn btn-primary">Guardar</button>
+<input type="reset"  class="btn btn-secondary" value="Limpiar datos">
 <a href="cerrar.php" class="btn btn-primary">Salir</a>
 </div>
 </form>
 </main>
+<script type="text/javascript"> 
+           document.querySelector('#id_rol').value=sessionStorage.getItem('id_rol'); 
+           document.querySelector('#participante_nombre').value=sessionStorage.getItem('participante_nombre'); 
+           document.querySelector('#participante_apellidop').value=sessionStorage.getItem('participante_apellidop'); 
+           document.querySelector('#participante_apellidom').value=sessionStorage.getItem('participante_apellidom'); 
+           document.querySelector('#participante_email').value=sessionStorage.getItem('participante_email'); 
+           document.querySelector('#participante_cargo_inst').value=sessionStorage.getItem('participante_cargo_inst'); 
+</script>
 
 <?php
 require_once ("include/footer.php");

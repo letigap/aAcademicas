@@ -1,0 +1,71 @@
+
+## Table de Contenido
+1. [Información General]
+2. [Tecnologías]
+3. [Instalación]
+4. [Manejo]
+5. [Desarrollo]
+
+### Información General
+***
+Título: Actividades Académicas del Posgrado de Economía (Página de contenido dinámico)
+Presentación y registro de actividades académicas realizadas en el Posgrado de Economía de la UNAM.
+Dirección electrónica:
+http://132.248.203.250/~leticia/index.php
+
+## Tecnologías
+***
+Tecnologías usadas en el proyecto:
+* [Bootstrap](https://getbootstrap.com/): Version 4.6
+* [Jquery](https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js): Version 3.6
+* [PHP](https://www.php.net/): Version 7
+* [MariaDB]
+
+## Instalación
+***
+```
+clonar el recurso
+$ git@gitlab.com:garciap.leticia/actividadesacademicas.git
+$ cd ../ruta/a/el/directorio/
+Necesario instalar la base de datos:
+-- crear una base de datos en el manejador de base de datos mysql.
+-- Restaurar la base con el archivo eventos_académicos.sql
+-- Una vez instalada la base y clonado los archivos fuente, ir a la url http://132.248.203.250/~leticia/
+
+## Manejo
+***
+```
+   Se realizó una barra de navegación de forma que se pueda manejar el sistema.
+-- En el menu de navegación la página de inicio nos presenta los 3 ultimos eventos académicos registrados en la base de datos, el video 
+ es alusivo al tema de actividades académicas.
+-- Los iconos de redes sociales de las instituciones involucradas en los eventos académicos son enlaces a dichas redes sociales.
+-- En el enlace eventos, se presentan todos los eventos existentes en la base de datos. Aqui mismo existe un formulario de busqueda del
+ cual podemos hacer uso para localizar eventos por nombre o por fecha.
+
+-- El tercer enlace Agregar Evento, nos lleva a un formulario para dar de alta a los participantes de un evento después de llenar los campos y dar click en el botón
+guardar, se presenta un alert que nos pregunta si deseamos ingresar otro participante, al aceptar nos regresa a la misma página, el sistema nos avisa si intentamos 
+registrar un participante ya existente con el mismo rol. Es decir en la tabla participantes no existirá el mismo nombre con el mismo rol. Al 
+decirle cancelar nos envía al formulario para agregar el evento deseado, todos los campos son obligatorios y nos pide el ingreso de 
+dos archivos, uno que es la imagen o cartel del evento y otro sera el programa del evento en formato pdf. Estos dos archivos se guardan en 
+diferente directorio, las imágenes irán al directorio assets/img/ y los archivos .pdf iran al directorio assets/archivos/.
+
+Se puede elegir más de una de las instituciones organizadoras  y en la lista de participantes encontraremos los nombres de los participantes 
+ingresados en el formulario anterior, también se puede elegir más de un participante.
+
+--Una vez terminado el proceso de registro, podemos ir a la página de eventos y revisar que el evento registrado actualmente, aparece en la página.
+En la página de inicio aparecerá el evento registrado recientemente dentro del apartado de los últimos 3 eventos.
+
+-- Por último se presenta un formulario de contacto, que se valida con javascript, pero no se terminó de realizar la prueba de envío.
+
+
+```
+
+## Desarrollado por:
+***
+Leticia García Pérez
+
+letiga@unam.mx
+
+
+
+

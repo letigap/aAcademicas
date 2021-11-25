@@ -1,5 +1,4 @@
 
-<!-- ======= Footer ======= -->
 <footer id="site-footer" class="footer bottom">
   <div class="site-footer">
         <div class="container">
@@ -24,7 +23,8 @@
               <div class="footer-dos col-xs-12 col-sm-12 col-md-4">
                     <ul class="list-inline">
                       <li><a class="fa fa-graduation-cap"></a>Acerca del Sitio</li>
-                      <li><a class="fa fa-sitemap"></a>Mapa del sitio</li>
+                      <li><a href="assets/archivos/ActividadesAcademicas.pdf" class="fa fa-sitemap"></a>Mapa del sitio</li>
+                      <li><a href="nuestro-equipo.php" class="fa fa-user-plus"></a>Nuestro equipo</li>
                     </ul>
               </div>
               <div class="footer-tres col-xs-12 col-sm-12 col-md-3 d-flex">
@@ -42,10 +42,8 @@
           <div class="copyright">
             <div>
                 <div class="text-center">
-                    <p>Sitio web administrado por la División de Estudios de Posgrado de la Facultad de Economía (DEP-FE) de la UNAM</p>
-                </div>
-                <div class="text-center">
-                  © Copyright <a href="#">Depfe UNAM</a> 2017. All Rights Reserved. 
+                    <p class="m-0">Sitio web administrado por la División de Estudios de Posgrado de la Facultad de Economía (DEP-FE) de la UNAM</p>
+                    <p>© Copyright <a href="#">Depfe UNAM</a> 2017. All Rights Reserved.</p>
                 </div>
             </div>  
           </div>   
@@ -56,12 +54,12 @@
 <script src="assets/js/jquery.multiselect.js"></script>
 <script src="assets/js/top-button.js"></script>
 <script src="assets/js/validar-registro.js"></script>
-<script>
-    $('#langOpt, #id_inst_org').multiselect({
-    columns:1,
-    placeholder:'Select Languages',
-    search:true
-      });
+<script src="assets/js/group.js">
+    // $('#langOpt, #id_inst_org').multiselect({
+    // columns:1,
+    // placeholder:'Select Languages',
+    // search:true
+    //   });
       
 </script>
 <script src="assets/js/jquery.js"></script>

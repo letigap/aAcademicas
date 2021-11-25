@@ -4,12 +4,10 @@
 // print_r($datos);
 $mensaje = '';
 //SECCION DEL CODIGO PARA PROCESAR EL FORMULARIO
-echo "<script> console.log('1');</script>";
-
-
+// echo "<script> console.log('1');</script>";
  if (isset($_POST['enviar']) && !empty($_POST['enviar'])) {
 
-echo "<script> console.log('2');</script>";
+// echo "<script> console.log('2');</script>";
 // }else{
 // echo "<script> console.log('2');</script>";
 

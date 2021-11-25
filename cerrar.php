@@ -8,7 +8,8 @@ if ($misession == null || $misession = '') {
 }
 
     	session_destroy();
+		echo "<script> alert('hola se inserto 1'); </script>";
     	header("location:login.php");
-
+		echo "Se cerró sesión correctamente";
 
 ?>

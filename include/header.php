@@ -33,31 +33,27 @@
 <!--   <link rel="stylesheet" href="img/icomoon-v1.0/fonts.css">
  -->  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
 
 
   <!-- Bootstrap CSS Files -->
   <link href="assets/bootstrap-4.6.0/css/bootstrap.min.css" rel="stylesheet">
  <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
  <link href="assets/css/jquery.multiselect.css" rel="stylesheet">
- 
 
   <!-- Archivos CSS, estilos propios -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/animacion.css" rel="stylesheet">
-  
+  <script src="assets/js/fecha.js"></script>
 
 </head>
 <header>
-  <div class="container">
-    <img src="assets/img/ea-depfe-unam-fe.png" alt="logo DEPFE">
-  </div> 
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #006ba1;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="col-lg-4">
-  <img class="w-25" style="min-width: 200px" src="assets/img/logos/actividades_B.png" alt="Logo actividades academicas">
+  <img class="w-50" style="min-width: 350px" src="assets/img/logos/actividades_c.png" alt="Logo actividades academicas">
   </div>
   <a class="navbar-brand" href="#"></a>
 
@@ -70,15 +66,18 @@
         <a class="nav-link" href="eventos.php">Eventos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="AgregarParticipante.php">Agregar Evento</a>
+        <a class="nav-link" href="AgregarEvento.php">Agregar Evento</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="AgregarParticipante.php">Agregar Participante</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="registro.php">Registro</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="buscar" placeholder="Buscar" aria-label="Buscar">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      <input class="form-control mr-sm-2" type="buscar" placeholder="Buscar" aria-label="Buscar  en google">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
     </form>
   </div>
 </nav>
