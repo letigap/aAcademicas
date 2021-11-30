@@ -19,8 +19,18 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
     $evento_informes = trim($_POST['evento_informes']);
     $evento_informes2 = trim($_POST['evento_informes2']);
     if (isset($_POST['evento_modalidad'])){
-        $evento_modalidad = implode(",", $_POST['evento_modalidad']);
-        echo $evento_modalidad;
+        $evento_modalidad = $_POST['evento_modalidad'];
+        
+        $modalidades="";
+        foreach($evento_modalidad as $value){
+            if (end($evento_modalidad)==$value) {
+            $modalidades.=$value;
+            }else{
+            $modalidades.=$value.',';
+            }
+        }
+        echo "<script> alert(".$modalidades."); </script>";
+        echo $modalidades;
     }else{
         $evento_modalidad = null;
     }
@@ -280,7 +290,7 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
             $stmt = mysqli_prepare($dbc, $query);
 
 
-            mysqli_stmt_bind_param($stmt, 'iiissssssssssssss',$id_tipo_apoyo, $id_tevento, $id_lugar_evento, $evento_registro, $evento_nombre, $evento_fecha_inicio, $evento_fecha_fin, $evento_hora, $evento_descripcion, $evento_informes, $evento_informes2, $evento_transmision, $evento_transmision2, $evento_transmision3, $target_path, $target_path2, $evento_modalidad);
+            mysqli_stmt_bind_param($stmt, 'iiissssssssssssss',$id_tipo_apoyo, $id_tevento, $id_lugar_evento, $evento_registro, $evento_nombre, $evento_fecha_inicio, $evento_fecha_fin, $evento_hora, $evento_descripcion, $evento_informes, $evento_informes2, $evento_transmision, $evento_transmision2, $evento_transmision3, $target_path, $target_path2, $modalidades);
 
             if (mysqli_stmt_execute($stmt)){
                echo "<script> alert('hola se inserto 1'); </script>";

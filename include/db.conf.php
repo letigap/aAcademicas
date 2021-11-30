@@ -3,5 +3,5 @@
 host = localhost
 user = root
 clave = 
-dbnombre = eventos_academicos
+dbnombre = dbeventos_academicos
 charset = utf8
