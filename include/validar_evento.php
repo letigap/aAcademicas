@@ -39,6 +39,7 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
     $evento_transmision2 = trim($_POST['evento_transmision2']);
     $evento_transmision3 = trim($_POST['evento_transmision3']);
     $evento_registro = trim($_POST['evento_registro']);
+    $evento_info = trim($_POST['evento_info']);
     
 
     if(isset($_POST['id_tipo_apoyo'])){
@@ -91,6 +92,7 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
         sessionStorage.setItem('evento_transmision2','".$evento_transmision2."');
         sessionStorage.setItem('evento_transmision3','".$evento_transmision3."');
         sessionStorage.setItem('evento_registro','".$evento_registro."'); 
+        sessionStorage.setItem('evento_registro','".$evento_info."');
         sessionStorage.setItem('id_tipo_apoyo',".$id_tipo_apoyo."); 
         sessionStorage.setItem('id_lugar_evento','".$id_lugar_evento."');
         sessionStorage.setItem('lugar_evento_ubicacion','".$lugar_evento_ubicacion."');
@@ -144,11 +146,11 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
         $errores['evento_informes'][] = "La dirección de informes puede tener máximo 100 caracteres";
     }
 
-    if( (!vacio($evento_informes2) ) && ( !filter_var($evento_informes2, FILTER_VALIDATE_EMAIL) ) ) {
-        $errores['evento_informes2']['formato'] = "El email no es válido";
-    }elseif (strlen($evento_informes2) > 100) {
-        $errores['evento_informes2'][] = "La dirección de informes puede tener máximo 100 caracteres";
-    }
+    if( !vacio($evento_informes2) && (!filter_var($evento_informes2, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => "/^([0-9\(\)\/\+ \-]*)+$/i"]])) ) {
+        $errores['evento_informes2'][] = "El dato informes no es válido";
+     }elseif (strlen($evento_informes2) > 10) {
+         $errores['evento_informes2'][] = "El dato informes puede tener máximo 10 caracteres";
+     }
     
     if( vacio($evento_transmision) ) {
         $errores['evento_transmision']['obligatorio'] = "La transmisión de evento es obligatorio";
@@ -176,6 +178,12 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
     }elseif (strlen($evento_registro) > 100) {
         $errores['evento_registro'][] = "El registro puede tener máximo 100 caracteres";
     }
+    if( !vacio($evento_info) && (!filter_var($evento_info, FILTER_VALIDATE_URL)) ) {
+        //evento_registro puede tener letras . ' (espacios) -  y numeros
+        $errores['evento_info'][] = "El campo más infomación no es válido";
+     }elseif (strlen($evento_info) > 100) {
+         $errores['evento_info'][] = "la dirección puede tener máximo 100 caracteres";
+     }
 
     
     if( vacio($evento_modalidad)) {
@@ -203,10 +211,6 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
     if( vacio($id_inst_org) ) {
         $errores['id_inst_org']['obligatorio'] = "El organizador es obligatorio";
     } 
-
-    // if( vacio($id_participante) ) {
-    //     $errores['id_participante']['obligatorio'] = "El participante es obligatorio";
-    // } 
 
     
     //VALIDACION DEL ARCHIVO DE IMAGEN A SUBIR
@@ -285,12 +289,12 @@ if (isset($_POST['agregar']) && !empty($_POST['agregar'])) {
         $dbc = conexion();
          echo "<script> alert('hola comienzo'); </script>";
 
-        $query = 'INSERT INTO evento (id_tipo_apoyo, id_tevento, id_lugar_evento, evento_registro, evento_nombre, evento_fecha_inicio, evento_fecha_fin, evento_hora, evento_descripcion, evento_informes, evento_informes2, evento_transmision, evento_transmision2, evento_transmision3, evento_imagen, evento_programa, evento_modalidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $query = 'INSERT INTO evento (id_tipo_apoyo, id_tevento, id_lugar_evento, evento_registro, evento_info, evento_nombre, evento_fecha_inicio, evento_fecha_fin, evento_hora, evento_descripcion, evento_informes, evento_informes2, evento_transmision, evento_transmision2, evento_transmision3, evento_imagen, evento_programa, evento_modalidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
             $stmt = mysqli_prepare($dbc, $query);
 
 
-            mysqli_stmt_bind_param($stmt, 'iiissssssssssssss',$id_tipo_apoyo, $id_tevento, $id_lugar_evento, $evento_registro, $evento_nombre, $evento_fecha_inicio, $evento_fecha_fin, $evento_hora, $evento_descripcion, $evento_informes, $evento_informes2, $evento_transmision, $evento_transmision2, $evento_transmision3, $target_path, $target_path2, $modalidades);
+            mysqli_stmt_bind_param($stmt, 'iiisssssssssssssss',$id_tipo_apoyo, $id_tevento, $id_lugar_evento, $evento_registro, $evento_info, $evento_nombre, $evento_fecha_inicio, $evento_fecha_fin, $evento_hora, $evento_descripcion, $evento_informes, $evento_informes2, $evento_transmision, $evento_transmision2, $evento_transmision3, $target_path, $target_path2, $modalidades);
 
             if (mysqli_stmt_execute($stmt)){
                echo "<script> alert('hola se inserto 1'); </script>";

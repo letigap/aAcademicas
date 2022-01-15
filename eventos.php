@@ -113,7 +113,7 @@
                   foreach ($participantes as $participante) {
 
                   ?>
-                    <p class="mb-0"><b><?= $participante ['rol_nombre'] ?>:</b> <?= $participante['participante_nombre'].' '.$participante ['participante_apellidop'].' '.$participante ['participante_apellidom'].','.' '.$participante ['participante_cargo_inst']?></p> 
+                    <p class="mb-0"><b><?= $participante ['rol_nombre'] ?>:</b> <?= $participante['participante_nombre'].' '.$participante ['participante_apellidop'].' '.$participante ['participante_apellidom'].' '.$participante ['participante_cargo_inst']?></p> 
                     <!-- <p class="m-0"><?= $participante ['participante_email'] ?></p> -->
                     
                  <?php } ?>

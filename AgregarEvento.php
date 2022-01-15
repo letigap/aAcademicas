@@ -45,7 +45,7 @@ $participantes = getDatos($sql);
 
 <!--Vista del formulario-->
 <body>
-    <h2 class="p-2 text-center">Registro nuevo evento</h2>
+    <h2 class="p-2 text-center">Registrar nuevo evento</h2>
     <main class="container">
     <form class="form-evento" id="myform" action="AgregarEvento.php" method="POST" enctype="multipart/form-data">
             <div class="form-row">
@@ -107,7 +107,7 @@ $participantes = getDatos($sql);
             <div class="form-row">
                 <div class="form-group col-md-10">
                 <label for="evento_informes">Informes</label>
-                    <input type="text" class="form-control <?= (isset($errores['evento_informes'])) ? 'is-invalid' : '' ?>" name="evento_informes" id="evento_informes" placeholder="Dirección de informes de evento" value="<?php echo $evento_informes; ?>">
+                    <input type="text" class="form-control <?= (isset($errores['evento_informes'])) ? 'is-invalid' : '' ?>" name="evento_informes" id="evento_informes" placeholder="Correo electrónico" value="<?php echo $evento_informes; ?>">
                     <div class="invalid-feedback"><span>
                     <?php
                      if(isset($errores['evento_informes']) && !empty($errores['evento_informes'])){
@@ -120,12 +120,12 @@ $participantes = getDatos($sql);
                     </div>
                 </div>
             </div>
-            <input type="checkbox" id="opcinal"> <label for="opcinal">Agregar otro Email</label>
+            <input type="checkbox" id="opcinal"> <label for="opcinal">Agregar teléfono</label>
             <!-- Segundo Email opcional -->
-            <div class="form-row" id="email2">
+            <div class="form-row" id="tel">
                 <div class="form-group col-md-10">
                 <label for="evento_informes2">Informes2</label>
-                    <input type="text" class="form-control <?= (isset($errores['evento_informes2'])) ? 'is-invalid' : '' ?>" name="evento_informes2" id="evento_informes2" placeholder="Dirección de informes de evento" value="<?php echo $evento_informes2; ?>">
+                    <input type="text" class="form-control <?= (isset($errores['evento_informes2'])) ? 'is-invalid' : '' ?>" name="evento_informes2" id="evento_informes2" placeholder="Número de teléfono" value="<?php echo $evento_informes2; ?>">
                     <div class="invalid-feedback"><span>
                     <?php
                      if(isset($errores['evento_informes2']) && !empty($errores['evento_informes2'])){
@@ -141,7 +141,7 @@ $participantes = getDatos($sql);
             <!--  -->
             <div class="form-row">
                 <div class="form-group col-md-10">
-                    <label for="evento_modalidad">Modalidad del evento</label>
+                    <label for="evento_modalidad">Modalidad</label>
                     <div class="form-check">
                         <input type="checkbox"  name="evento_modalidad[]" class="form-check-input" value="Presencial">
                         <label class="form-check-label" for="exampleCheck1">Presencial</label>
@@ -152,7 +152,7 @@ $participantes = getDatos($sql);
                     </div>
                     <div class="form-check">
                         <input type="checkbox" name="evento_modalidad[]" class="form-check-input" value="Semipresencial">
-                        <label class="form-check-label" for="exampleCheck1">Semipresencial</label>
+                        <label class="form-check-label" for="exampleCheck1">Híbrido</label>
                     </div>
                    
                     <div class="invalid-feedback"><?php
@@ -167,7 +167,7 @@ $participantes = getDatos($sql);
             </div>
             <div class="form-row">
                 <div class="form-group col-md-10">
-                <label for="id_tipo_apoyo">Tipo de apoyo del evento </label>
+                <label for="id_tipo_apoyo">Tipo de apoyo</label>
                     <select name="id_tipo_apoyo" id="id_tipo_apoyo" class="form-control <?= (isset($errores['id_tipo_apoyo'])) ? 'is-invalid' : '' ?>">
                         <option value="">-- N/A --</option>
                         <?php foreach($apoyos as $apoyo) {
@@ -189,7 +189,7 @@ $participantes = getDatos($sql);
             <div class="form-row">
                 <div class="form-group col-md-10">
                     <label for="evento_transmision">Transmisión</label>
-                    <input type="text" class="form-control <?= (isset($errores['evento_transmision'])) ? 'is-invalid' : '' ?>" name="evento_transmision" id="evento_transmision" placeholder="La forma de transmision de evento" value="<?php echo $evento_transmision; ?>">
+                    <input type="text" class="form-control <?= (isset($errores['evento_transmision'])) ? 'is-invalid' : '' ?>" name="evento_transmision" id="evento_transmision" placeholder="Forma de transmisión" value="<?php echo $evento_transmision; ?>">
                     <div class="invalid-feedback"><span>
                         <?php
                         if(isset($errores['evento_transmision']) && !empty($errores['evento_transmision'])){
@@ -207,7 +207,7 @@ $participantes = getDatos($sql);
             <div class="form-row" id="transmision2">
                 <div class="form-group col-md-10">
                 <label for="evento_transmision2">Transmisión 2</label>
-                <input type="text" class="form-control <?= (isset($errores['evento_transmision2'])) ? 'is-invalid' : '' ?>" name="evento_transmision2" id="evento_transmision2" placeholder="Segunda forma de transmisión de evento" value="<?php echo $evento_transmision2; ?>">
+                <input type="text" class="form-control <?= (isset($errores['evento_transmision2'])) ? 'is-invalid' : '' ?>" name="evento_transmision2" id="evento_transmision2" placeholder="Segunda forma de transmisión" value="<?php echo $evento_transmision2; ?>">
                 <div class="invalid-feedback"><span>
                         <?php
                         if(isset($errores['evento_transmision2']) && !empty($errores['evento_transmision2'])){
@@ -225,7 +225,7 @@ $participantes = getDatos($sql);
             <div class="form-row" id="transmision3">
                 <div class="form-group col-md-10">
                 <label for="evento_transmision3">Transmisión3</label>
-                <input type="text" class="form-control <?= (isset($errores['evento_transmision3'])) ? 'is-invalid' : '' ?>" name="evento_transmision3" id="evento_transmision3" placeholder="Tercera forma de transmisión de evento" value="<?php echo $evento_transmision3; ?>">
+                <input type="text" class="form-control <?= (isset($errores['evento_transmision3'])) ? 'is-invalid' : '' ?>" name="evento_transmision3" id="evento_transmision3" placeholder="Tercera forma de transmisión" value="<?php echo $evento_transmision3; ?>">
                 <div class="invalid-feedback"><span>
                         <?php
                         if(isset($errores['evento_transmision3']) && !empty($errores['evento_transmision3'])){
@@ -240,8 +240,8 @@ $participantes = getDatos($sql);
             </div>
             <div class="form-row">
                 <div class="form-group col-md-10">
-                    <label for="evento_registro">Dirección url de registro</label>
-                    <input type="url" class="form-control <?= (isset($errores['evento_registro'])) ? 'is-invalid' : '' ?>" name="evento_registro" id="evento_registro" placeholder="La dirección url de registro de evento" value="<?php echo $evento_registro; ?>">
+                    <label for="evento_registro">Registro</label>
+                    <input type="url" class="form-control <?= (isset($errores['evento_registro'])) ? 'is-invalid' : '' ?>" name="evento_registro" id="evento_registro" placeholder="La dirección url de registro" value="<?php echo $evento_registro; ?>">
                     <div class="invalid-feedback"><span>
                         <?php
                         if(isset($errores['evento_registro']) && !empty($errores['evento_registro'])){
@@ -255,8 +255,24 @@ $participantes = getDatos($sql);
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-10">
+                    <label for="evento_info">Más información</label>
+                    <input type="url" class="form-control <?= (isset($errores['evento_info'])) ? 'is-invalid' : '' ?>" name="evento_info" id="evento_info" placeholder="Más información" value="<?php echo $evento_info; ?>">
+                    <div class="invalid-feedback"><span>
+                        <?php
+                        if(isset($errores['evento_info']) && !empty($errores['evento_info'])){
+                            foreach($errores['evento_info'] as $tipo => $mensaje) {
+                            echo $mensaje;
+                        }
+                        }
+                        ?>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="evento_fecha_inicio">Fecha de inicio de evento </label>
+                    <label for="evento_fecha_inicio">Fecha de inicio</label>
                     <input type="date" class="form-control <?= (isset($errores['evento_fecha_inicio'])) ? 'is-invalid' : '' ?>" name="evento_fecha_inicio" id="evento_fecha_inicio" placeholder="La fecha de inicio de realización del evento" value="<?php echo $evento_fecha_inicio; ?>">
                     <div class="invalid-feedback"><span>
                         <?php
@@ -270,7 +286,7 @@ $participantes = getDatos($sql);
                     </div>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="evento_hora">Hora de inicio de evento </label>
+                    <label for="evento_hora">Hora de inicio</label>
                     <input type="time" class="form-control <?= (isset($errores['evento_hora'])) ? 'is-invalid' : '' ?>" name="evento_hora" id="evento_hora" placeholder="La hora de inicio del evento" value="<?php echo $evento_hora; ?>">
                     <div class="invalid-feedback"><span>
                         <?php
@@ -285,7 +301,7 @@ $participantes = getDatos($sql);
                 </div>
             
                 <div class="form-group col-md-4">
-                    <label for="evento_fecha_fin">Fecha de termino de evento </label>
+                    <label for="evento_fecha_fin">Fecha de término</label>
                     <input type="date" class="form-control <?= (isset($errores['evento_fecha_fin'])) ? 'is-invalid' : '' ?>" name="evento_fecha_fin" id="evento_fecha_fin" placeholder="La fecha de termino del evento" value="<?php echo $evento_fecha_fin; ?>">
                     <div class="invalid-feedback"><span>
                         <?php
@@ -321,7 +337,7 @@ $participantes = getDatos($sql);
             </div>
             <div class="form-row">
                 <div class="form-group col-md-10">
-                <label for="id_lugar_evento"><i id="id_lugar_eventoLoading" class="fas fa-spinner fa-spin d-none">&nbsp;</i>Sala del evento</label>
+                <label for="id_lugar_evento"><i id="id_lugar_eventoLoading" class="fas fa-spinner fa-spin d-none">&nbsp;</i>Recinto</label>
                     <select name="id_lugar_evento" id="id_lugar_evento" class="form-control <?= (isset($errores['id_lugar_evento'])) ? 'is-invalid' : '' ?>">
                         <option value="">-- Selecciona una opci&oacute;n --</option>
                         <?php foreach($salas as $sala){ ?>
@@ -422,7 +438,7 @@ $participantes = getDatos($sql);
 </main>
 
 <script type="text/javascript">
-           document.getElementById('email2').style.display = 'none'; //.style.visibility = "hidden";
+           document.getElementById('tel').style.display = 'none'; //.style.visibility = "hidden";
            document.querySelector('#evento_nombre').value=sessionStorage.getItem('evento_nombre'); 
            document.querySelector('#id_tevento').value=sessionStorage.getItem('id_tevento'); 
            document.querySelector('#evento_fecha_inicio').value=sessionStorage.getItem('evento_fecha_inicio'); 
@@ -434,7 +450,8 @@ $participantes = getDatos($sql);
            document.querySelector('#evento_transmision').value=sessionStorage.getItem('evento_transmision'); 
            document.querySelector('#evento_transmision2').value=sessionStorage.getItem('evento_transmision2');
            document.querySelector('#evento_transmision3').value=sessionStorage.getItem('evento_transmision3');
-           document.querySelector('#evento_registro').value=sessionStorage.getItem('evento_registro'); 
+           document.querySelector('#evento_registro').value=sessionStorage.getItem('evento_registro');
+           document.querySelector('#evento_info').value=sessionStorage.getItem('evento_info'); 
         //    document.querySelector('#evento_modalidad').value=sessionStorage.getItem('evento_modalidad'); 
            document.querySelector('#id_tipo_apoyo').value=sessionStorage.getItem('id_tipo_apoyo'); 
            document.querySelector('#id_lugar_evento').value=sessionStorage.getItem('id_lugar_evento'); 
@@ -450,9 +467,9 @@ $participantes = getDatos($sql);
 
             function comprueba(){
               if(checkbox.checked){
-                document.getElementById('email2').style.display = '';
+                document.getElementById('tel').style.display = '';
               }else{
-                document.getElementById('email2').style.display = 'none';
+                document.getElementById('tel').style.display = 'none';
               }
 
               if(checkbox2.checked){

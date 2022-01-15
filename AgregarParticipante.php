@@ -18,12 +18,12 @@ $roles = getDatos($sql);
 ?>
 <!--Vista del formulario-->
 <body>
-    <h2 class="p-2 text-center">Registro nuevo participante</h2>
+    <h2 class="p-2 text-center">Registrar nuevo participante</h2>
 <main class="container">
 <form class="form-evento" id="form_participante" action="AgregarParticipante.php" method="POST">
 <div class="form-row">
 <div class="form-group col-md-10">
-    <label for="id_rol">Rol de participante</label>
+    <label for="id_rol">Rol</label>
     <select name="id_rol" id="id_rol" class="form-control <?= (isset($errores['id_rol'])) ? 'is-invalid' : '' ?>">
         <option value="">-- N/A --</option>
         <?php foreach($roles as $rol) {
@@ -44,8 +44,8 @@ $roles = getDatos($sql);
 </div>            
 <div class="form-row">
 <div class="form-group col-md-10">
-    <label for="participante_nombre">Nombre de Participante</label>
-    <input type="text" class="form-control <?= (isset($errores['participante_nombre'])) ? 'is-invalid' : '' ?>" name="participante_nombre" id="participante_nombre" placeholder="Nombre del participante">
+    <label for="participante_nombre">Nombre</label>
+    <input type="text" class="form-control <?= (isset($errores['participante_nombre'])) ? 'is-invalid' : '' ?>" name="participante_nombre" id="participante_nombre" placeholder="Nombre">
         <div class="invalid-feedback">
         <span>
          <?php
@@ -61,7 +61,7 @@ $roles = getDatos($sql);
 </div>
 <div class="form-row">
 <div class="form-group col-md-10">
-    <label for="participante_apellidop">Apellido Paterno Participante</label>
+    <label for="participante_apellidop">Apellido Paterno</label>
     <input type="text" class="form-control <?= (isset($errores['participante_apellidop'])) ? 'is-invalid' : '' ?>" name="participante_apellidop" id="participante_apellidop" placeholder="Apellido Paterno">
         <div class="invalid-feedback"><span>
         <?php
@@ -77,7 +77,7 @@ $roles = getDatos($sql);
 </div>
 <div class="form-row">
 <div class="form-group col-md-10">
-    <label for="participante_apellidom">Apellido Materno Participante</label>
+    <label for="participante_apellidom">Apellido Materno</label>
     <input type="text" class="form-control <?= (isset($errores['participante_apellidom'])) ? 'is-invalid' : '' ?>" name="participante_apellidom" id="participante_apellidom" placeholder="Apellido Materno">
         <div class="invalid-feedback"><span>
         <?php
@@ -93,7 +93,7 @@ $roles = getDatos($sql);
 </div>
 <div class="form-row">
 <div class="form-group col-md-10">
-    <label for="participante_email">Dirección de correo electrónico del participante</label>
+    <label for="participante_email">Correo electrónico</label>
     <input type="text" class="form-control <?= (isset($errores['participante_email'])) ? 'is-invalid' : '' ?>" name="participante_email" id="participante_email" placeholder="Email">
         <div class="invalid-feedback"><span>
         <?php
@@ -109,7 +109,7 @@ $roles = getDatos($sql);
 </div>
 <div class="form-row">
 <div class="form-group col-md-10 pb-3">
-    <label for="participante_cargo_inst">Cargo Institucional Participante</label>
+    <label for="participante_cargo_inst">Cargo o Institución</label>
     <input type="text" class="form-control <?= (isset($errores['participante_cargo_inst'])) ? 'is-invalid' : '' ?>" name="participante_cargo_inst" id="participante_cargo_inst" placeholder="Cargo Institucional">
         <div class="invalid-feedback"><span>
         <?php
