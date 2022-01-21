@@ -141,8 +141,15 @@
                <?php if ( $evento['evento_registro'] == NULL ): ?>
                 <?php else: ?><p class="card-text m-0"><b>Registro:</b> <?= $evento['evento_registro'] ?></p>
                 <?php endif; ?>
+                <?php if ( $evento['evento_info'] == '' ): ?>
+                <?php else: ?><p class="card-text m-0"><b>Más información:</b> <?= $evento['evento_info'] ?></p>
+                <?php endif; ?>
 
-               <p class="card-text m-0"><b>Informes:</b> <?= $evento['evento_informes'] ?></br><?= $evento['evento_informes2'] ?></p>
+               <p class="card-text m-0"><b>Informes:</b> <?= $evento['evento_informes'] ?></p>
+               <?php if ( $evento['evento_informes2'] == '0' || $evento['evento_informes2'] == '' ): ?>
+                <?php else: ?><p class="card-text m-0"><?= $evento['evento_informes2'] ?></p>
+                <?php endif; ?>
+
                <p class="m-0">Modalidad: <?= $evento['evento_modalidad'] ?></p>
                <?php if ( $evento['tipo_apoyo_siglas'] == 'Ninguno' ): ?>
                <p></p>
